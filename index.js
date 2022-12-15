@@ -2,11 +2,10 @@ var express = require('express');
 var cors = require('cors');
 var app = express();
 const path = require('path')
-const port = 8080;
-const app = express();
+const port = 8000;
 
-app.use(express.static('./dist'))
-app.set('view engine', 'IRP3.0');
+// app.use(express.static('./dist'))
+// app.set('view engine', 'IRP3.0');
 // const app = express();
 // app.use(express.static('../dist/interior'))//set the static path 
 // app.set('view engine', 'pug');
@@ -37,11 +36,11 @@ app.get('/getToken', cors(), async function (req, res, next) {
     console.log('token', token);
     res.send({ 'access_token': token });
 })
-app.all('*', (req, res) => {
-    //res.render('appLoader');
-    res.header('Referrer-Policy', 'origin');
-    res.status(200).sendFile(path.resolve(__dirname, './dist/index.html'));
-});
+// app.all('*', (req, res) => {
+//     //res.render('appLoader');
+//     res.header('Referrer-Policy', 'origin');
+//     res.status(200).sendFile(path.resolve(__dirname, './dist/index.html'));
+// });
 
 
 app.listen(port, function () {
