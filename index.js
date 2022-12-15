@@ -2,7 +2,7 @@ var express = require('express');
 var cors = require('cors');
 var app = express();
 const path = require('path')
-const port = 8000;
+const PORT = process.env.PORT || 3000;
 
 // app.use(express.static('./dist'))
 // app.set('view engine', 'IRP3.0');
@@ -43,6 +43,6 @@ app.get('/getToken', cors(), async function (req, res, next) {
 // });
 
 
-app.listen(port, function () {
-    console.log('CORS-enabled web server listening on port: ' + port);
-})
+app.listen(PORT, () => {
+    console.log(`server port running in: ${PORT}`);
+ });
